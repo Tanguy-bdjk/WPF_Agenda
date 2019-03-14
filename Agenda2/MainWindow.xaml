@@ -1,0 +1,48 @@
+﻿<Window x:Class="Agenda2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Agenda2"
+        mc:Ignorable="d"
+        Title="Agenda LaManu" Height="450" Width="800">
+
+    <Grid x:Name="Layout">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Menu Height="37" Name="menu1" VerticalAlignment="Top" BorderThickness="2" Foreground="White" FontSize="16" FontWeight="Bold">
+            <Menu.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FF3A60AD" Offset="0.528" />
+                    <GradientStop Color="#FF6A85D8" Offset="0.01" />
+                    <GradientStop Color="#FF3464C4" Offset="1" />
+                    <GradientStop Color="#FF202E7E" Offset="1" />
+                </LinearGradientBrush>
+            </Menu.Background>
+
+            <Menu.BitmapEffect>
+                <DropShadowBitmapEffect />
+            </Menu.BitmapEffect>
+            <MenuItem Header="AGENDA" IsCheckable="True" Foreground="LightGreen" Height="38" Width="150" Click="Home">
+            </MenuItem>
+            <MenuItem HorizontalAlignment="Center" VerticalAlignment="Center"  Height="33" Width="210"  Header="Clients">
+                <MenuItem x:Name="ItemAddCustomer" Header="Ajouter un Client" Click="ItemAddCustomer_Click" Foreground="#FFD46A6A" Background="#FF3AB5C9" IsCheckable="true"/>
+                <MenuItem x:Name="ItemListCustomers" Header="Liste des Clients" Click="ItemListCustomers_Click" Foreground="#FFD46A6A" Background="#FF3AB5C9" IsCheckable="true"/>
+            </MenuItem>
+            <MenuItem HorizontalAlignment="Center" VerticalAlignment="Center"  Height="34" Width="210"  Header="Courtier">
+                <MenuItem x:Name="ItemAddBroker" Header="Ajouter un Courtier" Foreground="#FFD46A6A" Background="#FF3AB5C9"  IsCheckable="true" Click="ItemAddBroker_Click"/>
+                <MenuItem x:Name="ItemListBrokers" Header="Liste des Courtiers" Foreground="#FFD46A6A" Background="#FF3AB5C9"  IsCheckable="true" Click="ItemListBrokers_Click"/>
+            </MenuItem>
+            <MenuItem HorizontalAlignment="Center" VerticalAlignment="Center"  Height="34" Width="210"  Header="Rendez-vous">
+                <MenuItem  x:Name="ItemAddAppointment" Header="Ajouter un Rendez-vous" Foreground="#FFD46A6A" Background="#FF3AB5C9"  IsCheckable="true" Click="ItemAddAppointment_Click"/>
+                <MenuItem  x:Name="ItemListAppointments"  Header="Liste des Rendez-vous" Foreground="#FFD46A6A" Background="#FF3AB5C9"  IsCheckable="true" Click="ItemListAppointments_Click"/>
+            </MenuItem>
+        </Menu>
+
+    
+        <Frame x:Name="DisplayPage" Initialized="DisplayPage_Initialized" HorizontalAlignment="Left" VerticalAlignment="Top" Height="383" Width="792" Margin="0,37,0,0" NavigationUIVisibility="Hidden"/>
+
+    </Grid>
+</Window>

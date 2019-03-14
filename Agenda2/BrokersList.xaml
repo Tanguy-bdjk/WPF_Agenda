@@ -1,0 +1,60 @@
+﻿<Page x:Class="Agenda2.BrokersList"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Agenda2"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="BrokersList" Loaded="Page_Loaded_1">
+    <Page.Resources>
+        <CollectionViewSource x:Key="brokerViewSource" d:DesignSource="{d:DesignInstance {x:Type local:Broker}, CreateList=True}"/>
+    </Page.Resources>
+    <Page.Background>
+        <ImageBrush ImageSource="C:\Users\Moi\Desktop\WPF_Agenda2\Agenda2\img\list.jpg"/>
+    </Page.Background>
+
+    <Grid DataContext="{StaticResource brokerViewSource}">
+        <TextBlock Text="Liste des clients" FontSize="48" HorizontalAlignment="Center" FontFamily="EucrosiaUPC" FontWeight="Bold" Margin="23,27,315,0" Width="462" TextAlignment="Center" Foreground="#FFF7E6E6"/>
+
+        <DataGrid x:Name="brokerDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="23,107,315,143" IsReadOnly="True" RowDetailsVisibilityMode="VisibleWhenSelected">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="brokerIDColumn" Binding="{Binding BrokerID}" IsReadOnly="True" Header="Broker ID" Width="*"/>
+                <DataGridTextColumn x:Name="firstnameColumn" Binding="{Binding Firstname}" Header="Firstname" Width="*"/>
+                <DataGridTextColumn x:Name="lastnameColumn" Binding="{Binding Lastname}" Header="Lastname" Width="*"/>
+                <DataGridTextColumn x:Name="mailColumn" Binding="{Binding Mail}" Header="Mail" Width="*"/>
+                <DataGridTextColumn x:Name="phoneNumberColumn" Binding="{Binding PhoneNumber}" Header="Phone Number" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <TextBlock Text="Modifier client" FontSize="48" HorizontalAlignment="Center" FontFamily="EucrosiaUPC" FontWeight="Bold" Width="236" TextAlignment="Center" Margin="520,27,44,142" Foreground="#FFF5EEEE"/>
+        <Grid x:Name="grid1" HorizontalAlignment="Left" Margin="523,107,0,0" VerticalAlignment="Top" Height="200">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Broker ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" BorderBrush="Black" Background="Black" Foreground="#FFF9F3F3" FontWeight="Bold"/>
+            <TextBox x:Name="brokerIDTextBox" Grid.Column="1"  IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding BrokerID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <Label Content="Firstname:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center" BorderBrush="Black" Background="Black" Foreground="#FFF9F3F3" FontWeight="Bold"/>
+            <TextBox x:Name="firstnameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Text="{Binding Firstname, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <Label Content="Lastname:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center" BorderBrush="Black" Background="Black" Foreground="#FFF9F3F3" FontWeight="Bold"/>
+            <TextBox x:Name="lastnameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" Text="{Binding Lastname, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <Label Content="Mail:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center" BorderBrush="Black" Background="Black" Foreground="#FFF9F3F3" FontWeight="Bold"/>
+            <TextBox x:Name="mailTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="3" Text="{Binding Mail, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <Label Content="Phone Number:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center" BorderBrush="Black" Background="Black" Foreground="#FFF9F3F3" FontWeight="Bold"/>
+            <TextBox x:Name="phoneNumberTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4" Text="{Binding PhoneNumber, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <Button x:Name="BtnModify" Content="Modifier" HorizontalAlignment="Left" Margin="15,8,0,0" Grid.Row="6" VerticalAlignment="Top" Width="75" Background="#FF5A6A8D" Foreground="White" BorderBrush="#FF21BF4C" Click="BtnModify_Click"/>
+            <Button x:Name="BtnDelete" Content="Supprimer" Grid.Column="1" HorizontalAlignment="Left" Margin="51,8,0,0" Grid.Row="6" VerticalAlignment="Top" Width="75" Background="#FF5A6A8D" Foreground="#FFF00000" BorderBrush="#FFF00000" Click="BtnDelete_Click" FontWeight="Bold"/>
+
+        </Grid>
+
+    </Grid>
+</Page>

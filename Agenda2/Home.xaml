@@ -1,0 +1,17 @@
+﻿<Page x:Class="Agenda2.Home"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Agenda2"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Home">
+
+    <Grid>
+        <Image Source="C:\Users\Moi\Desktop\WPF_Agenda2\Agenda2\img\home.jpg" Margin="-25,10,0,-160" />
+
+        <TextBlock Margin="350,10" HorizontalAlignment="Center" x:Name="Horloge" VerticalAlignment="Bottom" FontSize="16" FontFamily="Calibri Light" Background="#FF4248B4" Foreground="#FF7A0909" FontWeight="Bold" TextAlignment="Center" Width="100" />
+        <TextBlock HorizontalAlignment="Center" Text="Welcome" VerticalAlignment="Center" Width="381" Height="91" TextAlignment="Center" FontFamily="Argentina" FontSize="72" Cursor="Pen"/>
+    </Grid>
+</Page>
